@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="Plotnikov Dmitrii" id="202402061920" runOnChange="false">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="account"/>
+      </not>
+    </preConditions>
+    <createTable tableName="account">
+      <column name="version" type="NUMBER"/>
+      <column name="id" type="BIGSERIAL" autoIncrement="true" remarks="Id записи">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="account_pk"/>
+      </column>
+      <column name="user_id" type="BIGSERIAL" remarks="Id владельца счета">
+        <constraints nullable="false" unique="true" foreignKeyName="account_user_id_fk"/>
+      </column>
+      <column name="balance" type="NUMBER(18, 2)" remarks="Остаток">
+        <constraints nullable="false"/>
+      </column>
+      <column name="opening_balance" type="NUMBER(18, 2)" remarks="Начальный остаток">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+</databaseChangeLog>

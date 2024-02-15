@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="Plotnikov Dmitrii" id="202402061900" runOnChange="false">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="users"/>
+      </not>
+    </preConditions>
+    <createTable tableName="users">
+      <column name="version" type="NUMBER"/>
+      <column name="id" type="BIGSERIAL" autoIncrement="true" remarks="Id записи">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="user_pk"/>
+      </column>
+      <column name="name" type="varchar(500)" remarks="Имя пользователя"/>
+      <column name="date_of_birth" type="datetime" remarks="Дата зщждения"/>
+      <column name="password" type="varchar(500)" remarks="Пароль"/>
+    </createTable>
+  </changeSet>
+
+</databaseChangeLog>

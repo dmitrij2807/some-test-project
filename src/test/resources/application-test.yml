@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+    url: jdbc:tc:postgresql://public
+  liquibase:
+    contexts: test
+    change-log: classpath:/db/changelog.xml

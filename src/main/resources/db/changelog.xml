@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <include file="db/changes/v1.0_create_user_table.xml"/>
+    <include file="db/changes/v1.0_create_account_table.xml"/>
+    <include file="db/changes/v1.0_create_phone_data_table.xml"/>
+    <include file="db/changes/v1.0_create_email_data_table.xml"/>
+    <include file="db/changes/v1.0_initial_data.xml"/>
+</databaseChangeLog>

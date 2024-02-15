@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="Plotnikov Dmitrii" id="202402102020" runOnChange="false">
+    <insert tableName="users">
+      <column name="id" value="1"/>
+      <column name="name" value="first"/>
+      <column name="date_of_birth" valueDate="2001-01-01"/>
+      <column name="password" value="secret"/>
+      <column name="version" value="1"/>
+    </insert>
+
+    <insert tableName="users">
+      <column name="id" value="2"/>
+      <column name="name" value="second"/>
+      <column name="date_of_birth" valueDate="2000-10-10"/>
+      <column name="password" value="secret"/>
+      <column name="version" value="1"/>
+    </insert>
+
+    <insert tableName="phone_data">
+      <column name="user_id" value="1"/>
+      <column name="phone" value="79111234567"/>
+      <column name="version" value="1"/>
+    </insert>
+
+    <insert tableName="phone_data">
+      <column name="user_id" value="2"/>
+      <column name="phone" value="79111234589"/>
+      <column name="version" value="1"/>
+    </insert>
+
+    <insert tableName="email_data">
+      <column name="user_id" value="1"/>
+      <column name="email" value="first@mail.com"/>
+      <column name="version" value="1"/>
+    </insert>
+
+    <insert tableName="email_data">
+      <column name="user_id" value="2"/>
+      <column name="email" value="second@mail.com"/>
+      <column name="version" value="1"/>
+    </insert>
+
+    <insert tableName="account">
+      <column name="user_id" value="1"/>
+      <column name="balance" value="100.00"/>
+      <column name="opening_balance" value="1000.00"/>
+      <column name="version" value="1"/>
+    </insert>
+
+    <insert tableName="account">
+      <column name="user_id" value="2"/>
+      <column name="balance" value="100.00"/>
+      <column name="opening_balance" value="1000.00"/>
+      <column name="version" value="1"/>
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,38 @@
+server:
+  port: 9091
+
+
+security:
+  token:
+    signing:
+      key: dmVyeSBsb25nIHNpbXBsZSBzZWNyZXQga2V5IHZhbHVl
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/mesh
+    username: postgres
+    password: postgres
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+      maximum-pool-size: 3
+
+  jpa:
+    database: PostgreSQL
+    properties:
+      hibernate.connection.provider_disables_autocommit: true
+    show-sql: true
+    generate-ddl: false
+
+  liquibase:
+    default-schema: public
+    change-log: classpath:db/changelog.xml
+    enabled: true
+
+level:
+  ROOT: INFO
+  org.hibernate.SQL: DEBUG  # DEBUG for sql logging
+  org.hibernate.type: TRACE # TRACE for sql logging
+  org.hibernate.stat: DEBUG # DEBUG for statistics logging
+
